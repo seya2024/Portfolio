@@ -1,0 +1,1427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Seid Mohammed · Software Engineer Portfolio</title>
+  <!-- Google Fonts & simple CSS reset -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f9fafc;
+      color: #1e293b;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* header / nav */
+    .navbar {
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 1rem 0;
+      transition: all 0.3s ease;
+    }
+
+    .nav-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .logo {
+      font-weight: 800;
+      font-size: 1.6rem;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #0f172a, #3b82f6);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.02);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #1e293b;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #3b82f6, #38bdf8);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-links a:hover {
+      color: #3b82f6;
+    }
+
+    .btn-outline-light {
+      background: transparent;
+      border: 1px solid #cbd5e1;
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #1e293b;
+    }
+
+    .btn-outline-light:hover {
+      border-color: #3b82f6;
+      background: #eff6ff;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+    }
+
+    .btn-hire {
+      background: linear-gradient(135deg, #2563eb, #1e40af);
+      color: white;
+      border: none;
+      padding: 0.5rem 1.5rem;
+      border-radius: 40px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
+    }
+
+    .btn-hire:hover {
+      background: linear-gradient(135deg, #3b82f6, #2563eb);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
+    }
+
+    .btn-hire-large {
+      background: linear-gradient(135deg, #2563eb, #1e40af);
+      color: white;
+      border: none;
+      padding: 0.9rem 2rem;
+      border-radius: 40px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+    }
+
+    .btn-hire-large:hover {
+      background: linear-gradient(135deg, #3b82f6, #2563eb);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.45);
+    }
+
+    /* hero section */
+    .hero {
+      padding: 5rem 0 4rem;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-grid {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 3rem;
+      justify-content: space-between;
+    }
+
+    .hero-content {
+      flex: 1;
+      min-width: 260px;
+    }
+
+    .hero-badge {
+      background: #e0f2fe;
+      color: #0284c7;
+      padding: 0.25rem 0.9rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: inline-block;
+      margin-bottom: 1.5rem;
+      animation: fadeInLeft 0.6s ease-out 0.2s both;
+    }
+
+    @keyframes fadeInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .hero-content h1 {
+      font-size: 3.4rem;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.2rem;
+      animation: fadeInLeft 0.6s ease-out 0.3s both;
+    }
+
+    .highlight {
+      background: linear-gradient(120deg, #2563eb, #38bdf8);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      animation: pulseGlow 3s ease-in-out infinite;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.85;
+      }
+    }
+
+    .hero-desc {
+      font-size: 1.2rem;
+      color: #334155;
+      max-width: 550px;
+      margin-bottom: 2rem;
+      animation: fadeInLeft 0.6s ease-out 0.4s both;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      animation: fadeInLeft 0.6s ease-out 0.5s both;
+    }
+
+    .btn-primary {
+      background: #0f172a;
+      color: white;
+      padding: 0.8rem 1.8rem;
+      border-radius: 40px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-primary:hover {
+      background: #1e293b;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.2);
+    }
+
+    .btn-secondary {
+      background: white;
+      border: 1px solid #cbd5e1;
+      color: #1e293b;
+      padding: 0.8rem 1.8rem;
+      border-radius: 40px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .btn-secondary:hover {
+      border-color: #3b82f6;
+      background: #f8fafc;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .hero-image {
+      flex: 0.8;
+      text-align: center;
+      animation: fadeInRight 0.8s ease-out 0.2s both;
+    }
+
+    @keyframes fadeInRight {
+      from {
+        opacity: 0;
+        transform: translateX(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .avatar-circle {
+      background: linear-gradient(145deg, #eef2ff, #ffffff);
+      border-radius: 50%;
+      width: 280px;
+      height: 280px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.1);
+      border: 3px solid white;
+      transition: all 0.4s ease;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .avatar-circle:hover {
+      transform: scale(1.02);
+      box-shadow: 0 25px 40px -12px rgba(0, 0, 0, 0.2);
+    }
+
+    .avatar-circle i {
+      font-size: 9rem;
+      color: #2563eb;
+      filter: drop-shadow(2px 8px 12px rgba(0,0,0,0.05));
+      transition: transform 0.3s ease;
+    }
+
+    .avatar-circle:hover i {
+      transform: scale(1.05);
+    }
+
+    /* section style */
+    section {
+      padding: 5rem 0;
+      border-bottom: 1px solid #eef2f6;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 2.5rem;
+      letter-spacing: -0.01em;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60%;
+      height: 3px;
+      background: linear-gradient(90deg, #3b82f6, #a5f3fc);
+      border-radius: 3px;
+      transition: width 0.4s ease;
+    }
+
+    section:hover .section-title:after {
+      width: 80%;
+    }
+
+    /* about section styles */
+    .about-content {
+      background: white;
+      border-radius: 28px;
+      padding: 2.5rem;
+      border: 1px solid #eef2ff;
+      box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.02);
+      transition: all 0.4s ease;
+    }
+
+    .about-content:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.1);
+      border-color: #cbdffc;
+    }
+
+    .about-text {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: #334155;
+      margin-bottom: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .about-highlights {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #eef2ff;
+    }
+
+    .highlight-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .highlight-item:hover {
+      transform: translateX(5px);
+    }
+
+    .highlight-icon {
+      width: 48px;
+      height: 48px;
+      background: #eff6ff;
+      border-radius: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2563eb;
+      font-size: 1.3rem;
+      transition: all 0.3s ease;
+    }
+
+    .highlight-item:hover .highlight-icon {
+      background: #2563eb;
+      color: white;
+      transform: rotate(5deg) scale(1.05);
+    }
+
+    /* experience cards */
+    .exp-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .exp-card {
+      background: white;
+      border-radius: 28px;
+      padding: 1.8rem 2rem;
+      box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.02);
+      border: 1px solid #eef2ff;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .exp-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .exp-card:hover {
+      border-color: #cbdffc;
+      box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.1);
+      transform: translateY(-5px) scale(1.01);
+    }
+
+    .exp-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 1rem;
+    }
+
+    .exp-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      transition: color 0.3s ease;
+    }
+
+    .exp-card:hover .exp-title {
+      color: #2563eb;
+    }
+
+    .exp-company {
+      color: #3b82f6;
+      font-weight: 600;
+    }
+
+    .exp-date {
+      color: #64748b;
+      font-size: 0.85rem;
+    }
+
+    /* projects grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      background: white;
+      border-radius: 24px;
+      padding: 1.6rem;
+      border: 1px solid #eef2ff;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .project-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 25px 35px -12px rgba(0, 0, 0, 0.15);
+      border-color: #cbdffc;
+    }
+
+    .project-icon {
+      font-size: 2.2rem;
+      color: #2563eb;
+      margin-bottom: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .project-card:hover .project-icon {
+      transform: scale(1.1) rotate(3deg);
+    }
+
+    .project-card h3 {
+      font-size: 1.35rem;
+      margin-bottom: 0.75rem;
+      transition: color 0.3s ease;
+    }
+
+    .project-card:hover h3 {
+      color: #2563eb;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1rem 0;
+    }
+
+    .tag {
+      background: #f1f5f9;
+      padding: 0.2rem 0.8rem;
+      border-radius: 40px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: #1e293b;
+      transition: all 0.3s ease;
+    }
+
+    .tag:hover {
+      background: #2563eb;
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    /* skills */
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .skill-badge {
+      background: white;
+      border-radius: 60px;
+      padding: 0.6rem 1.5rem;
+      font-weight: 500;
+      border: 1px solid #e2e8f0;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      opacity: 0;
+      transform: scale(0.9);
+    }
+
+    .skill-badge.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .skill-badge:hover {
+      border-color: #3b82f6;
+      background: #eff6ff;
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+    }
+
+    /* contact section - Clean and non-repetitive */
+    .contact-wrapper {
+      background: white;
+      border-radius: 32px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+      border: 1px solid #eef2ff;
+      transition: all 0.4s ease;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .contact-wrapper.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .contact-wrapper:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 25px 40px -12px rgba(37, 99, 235, 0.15);
+      border-color: #cbdffc;
+    }
+
+    .availability-header {
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      padding: 1.5rem 2rem;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .availability-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(16, 185, 129, 0.2);
+      backdrop-filter: blur(4px);
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border: 1px solid rgba(16, 185, 129, 0.4);
+    }
+
+    .availability-badge i {
+      color: #10b981;
+    }
+
+    .availability-text {
+      font-size: 0.9rem;
+      color: #94a3b8;
+    }
+
+    .contact-main {
+      padding: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: space-between;
+    }
+
+    .contact-info-section {
+      flex: 1;
+      min-width: 260px;
+    }
+
+    .contact-tagline {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: #0f172a;
+    }
+
+    .contact-desc {
+      color: #475569;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .contact-item:hover {
+      transform: translateX(5px);
+    }
+
+    .contact-icon {
+      width: 42px;
+      height: 42px;
+      background: #eff6ff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2563eb;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+    }
+
+    .contact-item:hover .contact-icon {
+      background: #2563eb;
+      color: white;
+      transform: scale(1.05);
+    }
+
+    .contact-item a, .contact-item span {
+      text-decoration: none;
+      color: #1e293b;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .contact-item a:hover {
+      color: #2563eb;
+    }
+
+    .expertise-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+
+    .expertise-tag {
+      background: #f1f5f9;
+      padding: 0.4rem 1rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #1e293b;
+      transition: all 0.3s ease;
+    }
+
+    .expertise-tag:hover {
+      background: #2563eb;
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .social-section {
+      flex: 0.5;
+      min-width: 180px;
+      text-align: center;
+      border-left: 1px solid #eef2ff;
+      padding-left: 2rem;
+    }
+
+    .social-title {
+      font-weight: 600;
+      margin-bottom: 1.2rem;
+      color: #0f172a;
+    }
+
+    .social-links-vertical {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .social-link-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #475569;
+      transition: all 0.3s ease;
+      padding: 0.5rem;
+      border-radius: 12px;
+    }
+
+    .social-link-item:hover {
+      background: #eff6ff;
+      color: #2563eb;
+      transform: translateX(5px);
+    }
+
+    .social-link-item i {
+      font-size: 1.3rem;
+      width: 28px;
+    }
+
+    .action-buttons {
+      margin-top: 2rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-contact {
+      background: linear-gradient(135deg, #2563eb, #1e40af);
+      color: white;
+      border: none;
+      padding: 0.8rem 1.8rem;
+      border-radius: 40px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-contact:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(37, 99, 235, 0.3);
+    }
+
+    .btn-outline-contact {
+      background: transparent;
+      border: 1px solid #cbd5e1;
+      padding: 0.8rem 1.8rem;
+      border-radius: 40px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #1e293b;
+    }
+
+    .btn-outline-contact:hover {
+      border-color: #2563eb;
+      background: #eff6ff;
+      transform: translateY(-2px);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      color: #5b6e8c;
+      font-size: 0.85rem;
+    }
+
+    .cert-section {
+      margin-top: 2.5rem;
+      background: #f1f5fe;
+      border-radius: 2rem;
+      padding: 1.8rem;
+      transition: all 0.3s ease;
+    }
+
+    .cert-section:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px -8px rgba(0, 0, 0, 0.1);
+    }
+
+    .cert-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      list-style: none;
+    }
+
+    .cert-list li {
+      transition: all 0.3s ease;
+      cursor: default;
+    }
+
+    .cert-list li:hover {
+      transform: translateX(5px);
+      color: #2563eb;
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .modal-content {
+      background: white;
+      border-radius: 32px;
+      padding: 2rem;
+      max-width: 500px;
+      width: 90%;
+      position: relative;
+      animation: slideUp 0.4s ease;
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #64748b;
+      transition: all 0.3s ease;
+    }
+
+    .modal-close:hover {
+      color: #1e293b;
+      transform: rotate(90deg);
+    }
+
+    .modal h3 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      color: #0f172a;
+    }
+
+    .hire-form input, .hire-form textarea {
+      width: 100%;
+      padding: 0.9rem;
+      margin-bottom: 1rem;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      font-family: inherit;
+      transition: all 0.3s ease;
+    }
+
+    .hire-form input:focus, .hire-form textarea:focus {
+      outline: none;
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+
+    .hire-form textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .submit-hire {
+      width: 100%;
+      background: linear-gradient(135deg, #2563eb, #1e40af);
+      color: white;
+      border: none;
+      padding: 0.9rem;
+      border-radius: 40px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .submit-hire:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(37, 99, 235, 0.3);
+    }
+
+    @media (max-width: 780px) {
+      .container {
+        padding: 0 1.5rem;
+      }
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+      .nav-flex {
+        flex-direction: column;
+      }
+      .nav-links {
+        justify-content: center;
+        gap: 1.2rem;
+      }
+      .hero-grid {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+      .hero-buttons {
+        justify-content: center;
+      }
+      .contact-main {
+        flex-direction: column;
+      }
+      .social-section {
+        border-left: none;
+        padding-left: 0;
+        border-top: 1px solid #eef2ff;
+        padding-top: 1.5rem;
+        margin-top: 1rem;
+      }
+      .social-links-vertical {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container nav-flex">
+    <div class="logo">Seid Mohammed</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><button class="btn-hire" id="navHireBtn"><i class="fas fa-user-plus"></i> Hire Me</button></li>
+    </ul>
+    <a href="https://www.linkedin.com/in/seid-mohammed-039949227/" target="_blank" rel="noopener noreferrer" class="btn-outline-light"><i class="fab fa-linkedin"></i> LinkedIn</a>
+  </div>
+</nav>
+
+<main>
+  <div class="container hero">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <span class="hero-badge"><i class="fas fa-code"></i> Software Engineer · System Architect</span>
+        <h1> Building resilient systems,<span class="highlight">driving digital transformation</span></h1>
+        <p class="hero-desc">I'm Seid Mohammed — Software Engineer & IT Infrastructure Specialist. Expertise in core banking systems, Linux administration, and full-stack development. Driving operational excellence across finance, telecom, and healthcare sectors.</p>
+        <div class="hero-buttons">
+          <a href="#projects" class="btn-primary"><i class="fas fa-arrow-right"></i> View work</a>
+          <a href="#contact" class="btn-secondary"><i class="fas fa-paper-plane"></i> Get in touch</a>
+          <button class="btn-hire-large" id="heroHireBtn"><i class="fas fa-briefcase"></i> Hire Me</button>
+        </div>
+      </div>
+      <div class="hero-image">
+        <div class="avatar-circle">
+          <i class="fas fa-server"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT SECTION -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <p>I'm Seid Mohammed, a passionate Software Engineer and IT Infrastructure Specialist with over 7 years of experience across Ethiopia's leading institutions. My journey began at Jimma Medical Center as a Linux System Administrator, where I developed a deep appreciation for resilient, mission-critical systems. Since then, I've evolved through roles in software development at Jimma University, IT operations at Safaricom Ethiopia, and now as a Core System Engineer at Dashen Bank SC.</p>
+        </div>
+        <div class="about-text">
+          <p>What drives me is the intersection of robust infrastructure and elegant software solutions. I specialize in building systems that don't just work—they perform under pressure. Whether it's optimizing core banking systems handling millions of transactions, deploying containerized services for telecom infrastructure, or developing full-stack applications with Laravel and Flutter, I focus on delivering reliability, security, and measurable impact.</p>
+        </div>
+        <div class="about-text">
+          <p>Beyond the technical realm, I'm committed to mentoring junior engineers and contributing to Ethiopia's growing tech ecosystem. I believe in technology as a catalyst for transformation, and I bring that mindset to every project.</p>
+        </div>
+        
+        <div class="about-highlights">
+          <div class="highlight-item">
+            <div class="highlight-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div class="highlight-text">
+              <h4>Based in</h4>
+              <p>Addis Ababa, Ethiopia</p>
+            </div>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-icon"><i class="fas fa-calendar-alt"></i></div>
+            <div class="highlight-text">
+              <h4>Experience</h4>
+              <p>7+ years in IT & Software Engineering</p>
+            </div>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-icon"><i class="fas fa-graduation-cap"></i></div>
+            <div class="highlight-text">
+              <h4>Education</h4>
+              <p>BSc in Software Engineering, Jimma University</p>
+            </div>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-icon"><i class="fas fa-language"></i></div>
+            <div class="highlight-text">
+              <h4>Languages</h4>
+              <p>English, Amharic, Afan Oromo</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience">
+    <div class="container">
+      <h2 class="section-title">Professional experience</h2>
+      <div class="exp-grid">
+        <div class="exp-card">
+          <div class="exp-header">
+            <div>
+              <span class="exp-title">Core System Engineer</span>
+              <span class="exp-company"> · Dashen Bank SC, Addis Ababa</span>
+            </div>
+            <div class="exp-date">2023 – Present</div>
+          </div>
+          <div class="exp-desc">Manage and optimize core banking infrastructure ensuring 99.99% availability. Lead system migrations, performance tuning for Oracle/DB2 databases, and disaster recovery planning. Implemented automated monitoring solutions reducing incident response time by 40%.</div>
+        </div>
+        <div class="exp-card">
+          <div class="exp-header">
+            <div>
+              <span class="exp-title">IT Operation Engineer</span>
+              <span class="exp-company"> · Safaricom Ethiopia</span>
+            </div>
+            <div class="exp-date">2021 – 2023</div>
+          </div>
+          <div class="exp-desc">Managed telecom IT infrastructure, Linux-based systems, and network operations. Deployed containerized services using Docker and Kubernetes. Led incident management and root cause analysis for critical production environments supporting millions of subscribers.</div>
+        </div>
+        <div class="exp-card">
+          <div class="exp-header">
+            <div>
+              <span class="exp-title">Software Engineer</span>
+              <span class="exp-company"> · Jimma University</span>
+            </div>
+            <div class="exp-date">2019 – 2021</div>
+          </div>
+          <div class="exp-desc">Designed and developed university management information systems using PHP (Laravel/Symfony) and MySQL. Built internal dashboards for student records and e-learning platforms. Collaborated with faculty to digitize administrative workflows, improving efficiency by 35%.</div>
+        </div>
+        <div class="exp-card">
+          <div class="exp-header">
+            <div>
+              <span class="exp-title">Linux System Administrator</span>
+              <span class="exp-company"> · Jimma Medical Center</span>
+            </div>
+            <div class="exp-date">2017 – 2019</div>
+          </div>
+          <div class="exp-desc">Administered critical healthcare IT infrastructure including HL7 interfaces, PACS servers, and EMR systems on RHEL/CentOS. Ensured HIPAA-compliant security, performed regular backups, and managed 150+ virtualized servers. Reduced system downtime by 25% through proactive maintenance.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">Featured engineering projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-icon"><i class="fas fa-hospital-user"></i></div>
+          <h3>MediTrack · Hospital Management System</h3>
+          <p>Full-featured HMIS built with Laravel & MySQL, integrating patient records, pharmacy inventory, and billing modules. Deployed at Jimma Medical Center, serving 500+ daily users with secure RBAC.</p>
+          <div class="project-tags">
+            <span class="tag">Laravel</span><span class="tag">MySQL</span><span class="tag">PHP</span><span class="tag">Bootstrap</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-icon"><i class="fas fa-chart-pie"></i></div>
+          <h3>BankInsight · Core Banking Dashboard</h3>
+          <p>Interactive analytics platform using Power BI and SQL for Dashen Bank. Consolidated transaction data into real-time KPIs, reducing report generation time by 60% for executive decision-making.</p>
+          <div class="project-tags">
+            <span class="tag">Power BI</span><span class="tag">SQL</span><span class="tag">DAX</span><span class="tag">ETL</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-icon"><i class="fas fa-mobile-alt"></i></div>
+          <h3>EthioConnect · Cross-Platform App</h3>
+          <p>Mobile application built with Flutter & Laravel backend, enabling service booking and payment integration. Achieved 10k+ downloads within 3 months of launch.</p>
+          <div class="project-tags">
+            <span class="tag">Flutter</span><span class="tag">Dart</span><span class="tag">Laravel</span><span class="tag">REST API</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-icon"><i class="fas fa-terminal"></i></div>
+          <h3>SysGuard · Linux Monitoring Suite</h3>
+          <p>Custom bash/Python scripts integrated with Prometheus and Grafana for real-time infrastructure monitoring. Implemented automated alerts for Safaricom's server fleet, preventing 15+ major incidents.</p>
+          <div class="project-tags">
+            <span class="tag">Linux</span><span class="tag">Python</span><span class="tag">Prometheus</span><span class="tag">Ansible</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills & Tools -->
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title">Tech stack & expertise</h2>
+      <div class="skills-container">
+        <span class="skill-badge">PHP / Laravel / Symfony</span>
+        <span class="skill-badge">MySQL / PostgreSQL</span>
+        <span class="skill-badge">Power BI / Data Analytics</span>
+        <span class="skill-badge">Flutter / Dart</span>
+        <span class="skill-badge">Linux (RHEL, CentOS, Ubuntu)</span>
+        <span class="skill-badge">Python / Bash Scripting</span>
+        <span class="skill-badge">Docker / Kubernetes</span>
+        <span class="skill-badge">Core Banking Systems</span>
+        <span class="skill-badge">System Administration</span>
+        <span class="skill-badge">IT Infrastructure & Networking</span>
+        <span class="skill-badge">Oracle DB / DB2</span>
+        <span class="skill-badge">CI/CD (GitLab CI, Jenkins)</span>
+        <span class="skill-badge">REST API Design</span>
+        <span class="skill-badge">Git / Version Control</span>
+      </div>
+      <div class="cert-section">
+        <p style="font-weight: 500; margin-bottom: 0.75rem;"><i class="fas fa-certificate" style="color:#2563eb;"></i> Certifications & Achievements</p>
+        <ul class="cert-list">
+          <li>🏅 Red Hat Certified System Administrator (RHCSA)</li>
+          <li>📘 Laravel Certified Developer</li>
+          <li>🤝 ITIL Foundation Certified</li>
+          <li>⭐ Microsoft Certified: Power BI Data Analyst Associate</li>
+          <li>🔧 Google IT Support Professional</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section - Clean, focused, non-repetitive -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Let's connect</h2>
+      <div class="contact-wrapper" id="contactWrapper">
+        <div class="availability-header">
+          <div class="availability-badge">
+            <i class="fas fa-circle" style="font-size: 0.7rem;"></i> Available for opportunities
+          </div>
+          <div class="availability-text">
+            <i class="fas fa-bolt"></i> System Architecture · Linux Infrastructure · Software Engineering · Data Analytics
+          </div>
+        </div>
+        <div class="contact-main">
+          <div class="contact-info-section">
+            <div class="contact-tagline">Let's build something exceptional</div>
+            <div class="contact-desc">
+              Open to high-impact engineering projects, system architecture roles, and technical consulting. Quick response within 24 hours.
+            </div>
+            <div class="contact-details">
+              <div class="contact-item">
+                <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                <a href="mailto:seidm2031@gmail.com">seidm2031@gmail.com</a>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+                <span>+251 985 192 541</span>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                <span>Addis Ababa, Ethiopia</span>
+              </div>
+            </div>
+            <div class="expertise-badges">
+              <span class="expertise-tag">System Architecture</span>
+              <span class="expertise-tag">Linux Infrastructure</span>
+              <span class="expertise-tag">Software Engineering</span>
+              <span class="expertise-tag">Data Analytics</span>
+              <span class="expertise-tag">Cloud & DevOps</span>
+            </div>
+            <div class="action-buttons">
+              <button class="btn-contact" id="contactHireBtn"><i class="fas fa-briefcase"></i> Discuss opportunity</button>
+              <a href="mailto:seidm2031@gmail.com" class="btn-outline-contact"><i class="fas fa-envelope"></i> Send email</a>
+            </div>
+          </div>
+          <div class="social-section">
+            <div class="social-title">Connect on platforms</div>
+            <div class="social-links-vertical">
+              <a href="https://www.linkedin.com/in/seid-mohammed" target="_blank" class="social-link-item">
+                <i class="fab fa-linkedin-in"></i> LinkedIn
+              </a>
+              <a href="https://github.com/seidmohammed" target="_blank" class="social-link-item">
+                <i class="fab fa-github"></i> GitHub
+              </a>
+              <a href="#" class="social-link-item">
+                <i class="fab fa-twitter"></i> Twitter
+              </a>
+              <a href="#" class="social-link-item">
+                <i class="fab fa-dev"></i> Dev.to
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <p>© 2025 Seid Mohammed — Software Engineer & System Administrator. Based in Addis Ababa, Ethiopia.</p>
+    <p style="margin-top: 0.5rem; font-size: 0.75rem;">System Architecture · Linux Infrastructure · Software Engineering · Data Analytics</p>
+  </div>
+</footer>
+
+<!-- Hire Me Modal -->
+<div id="hireModal" class="modal">
+  <div class="modal-content">
+    <span class="modal-close" id="closeModal">&times;</span>
+    <h3><i class="fas fa-briefcase"></i> Discuss opportunity</h3>
+    <p>Share your project or role details. I'll respond within 24 hours.</p>
+    <form class="hire-form" id="hireForm">
+      <input type="text" placeholder="Your name" required>
+      <input type="email" placeholder="Your email" required>
+      <input type="text" placeholder="Company / Organization">
+      <textarea placeholder="Tell me about the opportunity, project, or role..." required></textarea>
+      <button type="submit" class="submit-hire"><i class="fas fa-paper-plane"></i> Send message</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  // Intersection Observer for scroll-triggered animations
+  const animatedElements = document.querySelectorAll('.exp-card, .project-card, .skill-badge, .contact-wrapper');
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+  
+  animatedElements.forEach(el => {
+    observer.observe(el);
+  });
+  
+  // About content animation
+  const aboutContent = document.querySelector('.about-content');
+  if (aboutContent) {
+    const aboutObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+    aboutContent.style.opacity = '0';
+    aboutContent.style.transform = 'translateY(30px)';
+    aboutContent.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    aboutObserver.observe(aboutContent);
+  }
+  
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+  
+  // Modal functionality
+  const modal = document.getElementById('hireModal');
+  const navHireBtn = document.getElementById('navHireBtn');
+  const heroHireBtn = document.getElementById('heroHireBtn');
+  const contactHireBtn = document.getElementById('contactHireBtn');
+  const closeModal = document.getElementById('closeModal');
+  
+  function openModal() {
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+  
+  function closeModalFunc() {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  }
+  
+  if (navHireBtn) navHireBtn.addEventListener('click', openModal);
+  if (heroHireBtn) heroHireBtn.addEventListener('click', openModal);
+  if (contactHireBtn) contactHireBtn.addEventListener('click', openModal);
+  if (closeModal) closeModal.addEventListener('click', closeModalFunc);
+  
+  window.addEventListener('click', (e) => {
+    if (e.target === modal) closeModalFunc();
+  });
+  
+  const hireForm = document.getElementById('hireForm');
+  if (hireForm) {
+    hireForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Thank you for reaching out! I will respond within 24 hours.');
+      closeModalFunc();
+      hireForm.reset();
+    });
+  }
+  
+  // Trigger initial visibility
+  setTimeout(() => {
+    animatedElements.forEach(el => {
+      if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+        el.classList.add('visible');
+      }
+    });
+    if (aboutContent && aboutContent.getBoundingClientRect().top < window.innerHeight - 100) {
+      aboutContent.style.opacity = '1';
+      aboutContent.style.transform = 'translateY(0)';
+    }
+  }, 100);
+</script>
+</body>
+</html>
