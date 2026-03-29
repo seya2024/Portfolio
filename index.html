@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Seid Mohammed · Software Engineer Portfolio</title>
   <!-- Google Fonts & simple CSS reset -->
+  
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
@@ -17,10 +18,19 @@
     body {
       font-family: 'Inter', sans-serif;
       background: #f9fafc;
-      color: #1e293b;
-      line-height: 1.5;
+       color: #333;
+        font-size: 16px;
+      line-height: 1.7;
       scroll-behavior: smooth;
     }
+
+/* Headings */
+h1, h2, h3 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
 
     .container {
       max-width: 1280px;
@@ -1024,7 +1034,282 @@
         flex-wrap: wrap;
       }
     }
+    .avatar-circle {
+        width: 420px;   /* reduced from 180px */
+        height: 420px;
+        border-radius: 0%;
+        overflow: hidden;
+      }
+
+      .avatar-circle img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+     }
+     /* Body text */
+
+
+/* Hero title (important) */
+.hero h1 {
+  font-size: 42px;
+  line-height: 1.2;
+}
+
+/* Paragraphs */
+.about-text p {
+  font-size: 16px;
+  color: #555;
+}
+/* Grid layout */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+/* Card base */
+.project-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 25px;
+  transition: all 0.3s ease;
+  border: 1px solid #eee;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle top accent */
+.project-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #6a11cb, #2575fc);
+}
+
+/* Hover effect */
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+  border-color: transparent;
+}
+
+/* Icon */
+.project-icon {
+  width: 50px;
+  height: 50px;
+  background: rgba(106, 17, 203, 0.1);
+  color: #6a11cb;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+/* Grid layout */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 per row */
+  gap: 25px;
+  margin-top: 30px;
+}
+
+/* Card style */
+.project-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 25px 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Gradient top line accent */
+.project-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, #6a11cb, #2575fc);
+}
+
+/* Hover lift effect */
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+/* Icon */
+.project-icon {
+  width: 50px;
+  height: 50px;
+  background: rgba(106,17,203,0.1);
+  color: #6a11cb;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+}
+
+.project-card:hover .project-icon {
+  transform: scale(1.1);
+  background: rgba(38, 132, 255, 0.1);
+  color: #2575fc;
+}
+
+/* Title */
+.project-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #111;
+}
+
+/* Description */
+.project-card p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+/* Tags container */
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Tags */
+.tag {
+  background: #f3f4f6;
+  color: #333;
+  font-size: 12px;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.tag:hover {
+  background: #6a11cb;
+  color: #fff;
+  cursor: default;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* Gallery overlay */
+/* Gallery overlay */
+.project-gallery {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9); /* darker for better contrast */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  border-radius: 16px;
+  transition: opacity 0.3s ease;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.project-card:hover .project-gallery {
+  opacity: 1;
+}
+
+/* Slide container */
+.slides {
+  display: flex;
+  transition: transform 0.4s ease-in-out;
+  height: 80%;
+}
+
+/* Each image wrapper for better view */
+.slides img {
+  max-width: 90%;       /* don’t stretch full width */
+  max-height: 90%;      /* fit height inside overlay */
+  object-fit: contain;   /* maintain aspect ratio */
+  margin: 0 10px;       /* space between images */
+  flex-shrink: 0;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+/* Controls */
+.gallery-controls {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0 15px;
+  pointer-events: none;
+}
+
+.gallery-controls span {
+  font-size: 35px;
+  color: #fff;
+  cursor: pointer;
+  pointer-events: auto;
+  user-select: none;
+  transition: color 0.3s;
+}
+
+.gallery-controls span:hover {
+  color: #6a11cb;
+}
   </style>
+  <script>
+
+document.querySelectorAll('.project-card').forEach(card => {
+  const carousel = card.querySelector('.carousel');
+  const imgs = carousel.querySelectorAll('img');
+  let index = 0;
+
+  const prev = card.querySelector('.prev');
+  const next = card.querySelector('.next');
+
+  function showSlide(i) {
+    if(i < 0) i = imgs.length - 1;
+    if(i >= imgs.length) i = 0;
+    index = i;
+    carousel.style.transform = `translateX(-${index * 100}%)`;
+  }
+
+  prev.addEventListener('click', () => showSlide(index - 1));
+  next.addEventListener('click', () => showSlide(index + 1));
+
+  // Auto slide every 3s
+  setInterval(() => showSlide(index + 1), 3000);
+});
+  </script>
 </head>
 <body>
 
@@ -1048,19 +1333,19 @@
     <div class="hero-grid">
       <div class="hero-content">
         <span class="hero-badge"><i class="fas fa-code"></i> Software Engineer · System Architect</span>
-        <h1> Building resilient systems,<span class="highlight">driving digital transformation</span></h1>
+      <h1>Developing Scalable Applications,<span class="highlight">Focused on Performance and Security</span></h1>
         <p class="hero-desc">I'm Seid Mohammed — Software Engineer & IT Infrastructure Specialist. Expertise in core banking systems, Linux administration, and full-stack development. Driving operational excellence across finance, telecom, and healthcare sectors.</p>
         <div class="hero-buttons">
           <a href="#projects" class="btn-primary"><i class="fas fa-arrow-right"></i> View work</a>
-          <a href="#contact" class="btn-secondary"><i class="fas fa-paper-plane"></i> Get in touch</a>
-          <button class="btn-hire-large" id="heroHireBtn"><i class="fas fa-briefcase"></i> Hire Me</button>
+         <!-- <a href="#contact" class="btn-secondary"><i class="fas fa-paper-plane"></i> Get in touch</a> -->
+           <button class="btn-hire-large" id="heroHireBtn"><i class="fas fa-briefcase"></i> Get in touch </button> 
         </div>
       </div>
       <div class="hero-image">
-        <div class="avatar-circle">
-          <i class="fas fa-server"></i>
-        </div>
+      <div class="avatar-circle">
+        <img src="assets/images/photo.jpg" alt="Profile Photo">
       </div>
+    </div>
     </div>
   </div>
 
@@ -1069,16 +1354,17 @@
     <div class="container">
       <h2 class="section-title">About Me</h2>
       <div class="about-content">
-        <div class="about-text">
-          <p>I'm Seid Mohammed, a passionate Software Engineer and IT Infrastructure Specialist with over 7 years of experience across Ethiopia's leading institutions. My journey began at Jimma Medical Center as a Linux System Administrator, where I developed a deep appreciation for resilient, mission-critical systems. Since then, I've evolved through roles in software development at Jimma University, IT operations at Safaricom Ethiopia, and now as a Core System Engineer at Dashen Bank SC.</p>
-        </div>
-        <div class="about-text">
-          <p>What drives me is the intersection of robust infrastructure and elegant software solutions. I specialize in building systems that don't just work—they perform under pressure. Whether it's optimizing core banking systems handling millions of transactions, deploying containerized services for telecom infrastructure, or developing full-stack applications with Laravel and Flutter, I focus on delivering reliability, security, and measurable impact.</p>
-        </div>
-        <div class="about-text">
-          <p>Beyond the technical realm, I'm committed to mentoring junior engineers and contributing to Ethiopia's growing tech ecosystem. I believe in technology as a catalyst for transformation, and I bring that mindset to every project.</p>
-        </div>
-        
+<div class="about-text">
+  <p>I'm Seid Mohammed, a Software Engineer and IT Infrastructure Specialist with 7+ years of experience building and running systems that can’t afford to fail. I started at Jimma Medical Center as a Linux System Administrator, working in a healthcare environment where uptime was critical. That experience shaped how I approach engineering—design for reliability first. Since then, I’ve worked across software development at Jimma Universityfor 4 years, telecom system operations at Safaricom Ethiopia, and currently as a Core System Engineer at Dashen Bank SC.</p>
+</div>
+
+<div class="about-text">
+  <p>I focus on the intersection of backend engineering and infrastructure. I build systems that don’t just work in development but remain stable under real production load. My experience includes optimizing high-transaction core banking systems, deploying containerized services in telecom environments, and developing full-stack applications using Laravel and Flutter. I prioritize performance, security, and maintainability from day one.</p>
+</div>
+
+<div class="about-text">
+  <p>I don’t just write code—I take ownership of systems end-to-end. I understand how failures happen in production and design to prevent them. I also mentor junior engineers and actively contribute to building strong, practical engineering practices. I’m open to remote opportunities where I can help teams build scalable, reliable systems and deliver real impact.</p>
+</div>
         <div class="about-highlights">
           <div class="highlight-item">
             <div class="highlight-icon"><i class="fas fa-map-marker-alt"></i></div>
@@ -1098,7 +1384,7 @@
             <div class="highlight-icon"><i class="fas fa-graduation-cap"></i></div>
             <div class="highlight-text">
               <h4>Education</h4>
-              <p>BSc in Software Engineering, Jimma University</p>
+              <p>BSc in Computer Science, Jimma University</p>
             </div>
           </div>
           <div class="highlight-item">
@@ -1163,51 +1449,149 @@
   </section>
 
   <!-- Projects Section -->
-  <section id="projects">
-    <div class="container">
-      <h2 class="section-title">Featured engineering projects</h2>
-      <div class="projects-grid">
-        <div class="project-card">
-          <div class="project-icon"><i class="fas fa-hospital-user"></i></div>
-          <h3>MediTrack · Hospital Management System</h3>
-          <p>Full-featured HMIS built with Laravel & MySQL, integrating patient records, pharmacy inventory, and billing modules. Deployed at Jimma Medical Center, serving 500+ daily users with secure RBAC.</p>
-          <div class="project-tags">
-            <span class="tag">Laravel</span><span class="tag">MySQL</span><span class="tag">PHP</span><span class="tag">Bootstrap</span>
-          </div>
-        </div>
-        <div class="project-card">
-          <div class="project-icon"><i class="fas fa-chart-pie"></i></div>
-          <h3>BankInsight · Core Banking Dashboard</h3>
-          <p>Interactive analytics platform using Power BI and SQL for Dashen Bank. Consolidated transaction data into real-time KPIs, reducing report generation time by 60% for executive decision-making.</p>
-          <div class="project-tags">
-            <span class="tag">Power BI</span><span class="tag">SQL</span><span class="tag">DAX</span><span class="tag">ETL</span>
-          </div>
-        </div>
-        <div class="project-card">
-          <div class="project-icon"><i class="fas fa-mobile-alt"></i></div>
-          <h3>EthioConnect · Cross-Platform App</h3>
-          <p>Mobile application built with Flutter & Laravel backend, enabling service booking and payment integration. Achieved 10k+ downloads within 3 months of launch.</p>
-          <div class="project-tags">
-            <span class="tag">Flutter</span><span class="tag">Dart</span><span class="tag">Laravel</span><span class="tag">REST API</span>
-          </div>
-        </div>
-        <div class="project-card">
-          <div class="project-icon"><i class="fas fa-terminal"></i></div>
-          <h3>SysGuard · Linux Monitoring Suite</h3>
-          <p>Custom bash/Python scripts integrated with Prometheus and Grafana for real-time infrastructure monitoring. Implemented automated alerts for Safaricom's server fleet, preventing 15+ major incidents.</p>
-          <div class="project-tags">
-            <span class="tag">Linux</span><span class="tag">Python</span><span class="tag">Prometheus</span><span class="tag">Ansible</span>
-          </div>
+<section id="projects">
+  <div class="container">
+    <h2 class="section-title">Featured Projects</h2>
+
+<div class="projects-grid">
+      <!-- ATM Monitoring System -->
+<div class="project-card">
+  <div class="project-icon"><i class="fas fa-desktop"></i></div>
+  <h3>ATM Monitor · ATM Monitoring System</h3>
+  <p>Real-time ATM monitoring system for Dashen Bank using React & Node/Express. Tracks ATM status, uptime, and transaction alerts to proactively prevent downtime and enhance customer experience.</p>
+  <div class="project-tags">
+    <span class="tag">React</span><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">REST API</span>
+  </div>
+
+    <!-- Hover gallery -->
+  <div class="project-gallery">
+    <div class="slides">
+    
+      <img src="assets/atm/3.png" alt="ATM Monitor 3">
+        <img src="assets/atm/5.png" alt="ATM Monitor 5">
+      <img src="assets/atm/1.png" alt="ATM Monitor 1">
+      <img src="assets/atm/2.png" alt="ATM Monitor 2">
+      <img src="assets/atm/4.png" alt="ATM Monitor 4">
+ 
+    </div>
+    <div class="gallery-controls">
+      <span class="prev">&#10094;</span>
+      <span class="next">&#10095;</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- Daily Current Exchange Management -->
+<div class="project-card">
+  <div class="project-icon"><i class="fas fa-money-bill-wave"></i></div>
+  <h3>ExchTrack · Daily Current Exchange Management</h3>
+  <p>Dashen Bank platform built with React & Node/Express for managing daily currency rates. Enables efficient updates, reporting, and integration with banking services for accurate exchange operations.</p>
+  <div class="project-tags">
+    <span class="tag">React</span><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">API</span>
+  </div>
+</div>
+
+      <!-- HRM -->
+      <div class="project-card">
+        <div class="project-icon"><i class="fas fa-users-cog"></i></div>
+        <h3>ERP · Enterprise Resource Planning</h3>
+        <p>Enterprise HR platform managing recruitment, payroll, attendance, and performance. Streamlined employee lifecycle processes and reduced manual HR workload across departments.</p>
+        <div class="project-tags">
+          <span class="tag">Laravel/Filament</span><span class="tag">MySQL</span><span class="tag">RBAC</span><span class="tag">REST API</span>
         </div>
       </div>
+
+      <!-- EMR -->
+      <div class="project-card">
+        <div class="project-icon"><i class="fas fa-notes-medical"></i></div>
+        <h3>CareSys · Electronic Medical Record (EMR)</h3>
+        <p>Secure EMR system managing patient history, diagnosis, and treatment workflows. Improved data accessibility and reduced record retrieval time in high-demand clinical environments.</p>
+        <div class="project-tags">
+          <span class="tag">Symfony</span><span class="tag">MySQL</span><span class="tag">Security</span><span class="tag">Healthcare</span>
+        </div>
+      </div>
+
+      <!-- Helpdesk -->
+      <div class="project-card">
+        <div class="project-icon"><i class="fas fa-headset"></i></div>
+        <h3>SupportDesk · Helpdesk Management System</h3>
+        <p>Ticketing system with SLA tracking, prioritization, and reporting. Improved IT support response time and visibility across service requests.</p>
+        <div class="project-tags">
+          <span class="tag">Symfony</span><span class="tag">Bootstrap</span><span class="tag">MySQL</span><span class="tag">SLA</span>
+        </div>
+      </div>
+
+      <!-- SMIS -->
+      <div class="project-card">
+        <div class="project-icon"><i class="fas fa-chart-line"></i></div>
+        <h3>StratView · Strategic MIS Dashboard</h3>
+        <p>Decision-support system aggregating organizational KPIs into real-time dashboards. Enabled leadership to track performance and make data-driven decisions.</p>
+        <div class="project-tags">
+          <span class="tag">Power BI</span><span class="tag">SQL</span><span class="tag">ETL</span><span class="tag">Analytics</span>
+        </div>
+      </div>
+
+      <!-- Registrar -->
+      <div class="project-card">
+        <div class="project-icon"><i class="fas fa-user-graduate"></i></div>
+        <h3>UniReg · University Registrar System</h3>
+        <p>Academic management system handling registration, grading, and transcripts for thousands of students. Improved processing efficiency and reduced administrative overhead.</p>
+        <div class="project-tags">
+          <span class="tag">Spring Boot</span><span class="tag">MySQL</span><span class="tag">RBAC</span><span class="tag">Education</span>
+        </div>
+      </div>
+
+      <!-- One Card -->
+      <div class="project-card">
+        <div class="project-icon"><i class="fas fa-id-card"></i></div>
+        <h3>OneCard · Student Service Platform</h3>
+        <p>Integrated system linking student identity with payments, access control, and campus services. Simplified service delivery through a unified platform.</p>
+        <div class="project-tags">
+          <span class="tag">Laravel</span><span class="tag">API</span><span class="tag">Integration</span><span class="tag">RFID</span>
+        </div>
+      </div>
+
+      <!-- Insurance -->
+      <div class="project-card">
+        <div class="project-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+        <h3>InsureSys · Health Insurance Management</h3>
+        <p>System for managing policy enrollment, claims processing, and reporting. Increased transparency and reduced claim processing delays.</p>
+        <div class="project-tags">
+          <span class="tag">Codeigniter</span><span class="tag">MySQL</span><span class="tag">Finance</span><span class="tag">Reporting</span>
+        </div>
+      </div>
+
+      <!-- Clinical -->
+      <div class="project-card">
+        <div class="project-icon"><i class="fas fa-stethoscope"></i></div>
+        <h3>ClinicFlow · Clinical Information System</h3>
+        <p>End-to-end clinical workflow system supporting patient intake, diagnosis, and treatment coordination. Improved collaboration between healthcare providers.</p>
+        <div class="project-tags">
+          <span class="tag">Symfony</span><span class="tag">Healthcare</span><span class="tag">Workflow</span><span class="tag">MySQL</span>
+        </div>
+      </div>
+
+      <!-- Referral -->
+      <div class="project-card">
+        <div class="project-icon"><i class="fas fa-ambulance"></i></div>
+        <h3>RefNet · Referral & Emergency Coordination</h3>
+        <p>Real-time referral system connecting healthcare facilities for emergency response and patient transfer. Reduced delays in critical care coordination.</p>
+        <div class="project-tags">
+          <span class="tag">Laravel</span><span class="tag">API</span><span class="tag">Realtime</span><span class="tag">Healthcare</span>
+        </div>
+      </div>
+
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- Skills & Tools -->
   <section id="skills">
     <div class="container">
       <h2 class="section-title">Tech stack & expertise</h2>
       <div class="skills-container">
+         <span class="skill-badge">React/ Node.js /Express.js</span>
         <span class="skill-badge">PHP / Laravel / Symfony</span>
         <span class="skill-badge">MySQL / PostgreSQL</span>
         <span class="skill-badge">Power BI / Data Analytics</span>
